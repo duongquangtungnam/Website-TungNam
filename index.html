@@ -17,25 +17,23 @@
         }
 
         body {
-            background: #e8e8e8;
+            background: #0a0a0a;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            backdrop-filter: blur(2px);
         }
 
         /* khung điện thoại */
         .phone-frame {
             max-width: 420px;
             width: 100%;
-            background: #ffffff;
+            background: #121212;
             border-radius: 40px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.06);
             padding: 24px 20px 30px;
             position: relative;
-            backdrop-filter: blur(6px);
             transition: all 0.2s ease;
         }
 
@@ -45,7 +43,7 @@
             justify-content: space-between;
             align-items: center;
             padding-bottom: 14px;
-            border-bottom: 1px solid #d0d0d0;
+            border-bottom: 1px solid #2a2a2a;
             margin-bottom: 22px;
         }
 
@@ -53,13 +51,13 @@
             font-size: 26px;
             font-weight: 700;
             letter-spacing: -0.5px;
-            background: linear-gradient(145deg, #1a1a1a, #a00000, #1a1a1a);
+            background: linear-gradient(145deg, #ffffff, #a0a0a0, #ffffff);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: shimmerTitle 3.2s ease-in-out infinite alternate;
-            text-shadow: 0 0 14px rgba(160, 0, 0, 0.25);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
             transition: transform 0.2s;
         }
         .site-title:active {
@@ -79,12 +77,12 @@
             cursor: pointer;
             padding: 8px 10px;
             border-radius: 14px;
-            background: #f0f0f0;
+            background: #1e1e1e;
             transition: background 0.2s, transform 0.1s;
-            border: 1px solid #bcbcbc;
+            border: 1px solid #333;
         }
         .hamburger:hover {
-            background: #e2e2e2;
+            background: #2a2a2a;
         }
         .hamburger:active {
             transform: scale(0.90);
@@ -93,7 +91,7 @@
             display: block;
             width: 26px;
             height: 3px;
-            background: #1a1a1a;
+            background: #ffffff;
             border-radius: 4px;
             transition: all 0.2s;
         }
@@ -103,18 +101,18 @@
             position: absolute;
             top: 76px;
             right: 20px;
-            background: #ffffff;
+            background: #1a1a1a;
             border-radius: 24px;
             padding: 16px 20px;
-            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
-            border: 1px solid #cecece;
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid #333;
             display: none;
             flex-direction: column;
             gap: 16px;
             z-index: 99;
             min-width: 180px;
             backdrop-filter: blur(8px);
-            background: rgba(255, 255, 255, 0.96);
+            background: rgba(20, 20, 20, 0.96);
             transition: all 0.15s ease;
         }
         .dropdown-menu.show {
@@ -127,7 +125,7 @@
             gap: 14px;
             font-size: 18px;
             font-weight: 500;
-            color: #1a1a1a;
+            color: #ffffff;
             text-decoration: none;
             padding: 8px 6px 8px 4px;
             border-radius: 16px;
@@ -136,12 +134,12 @@
             letter-spacing: 0.3px;
         }
         .dropdown-item:hover {
-            background: #ececec;
+            background: #2a2a2a;
         }
         .dropdown-item svg {
             width: 30px;
             height: 30px;
-            fill: #1a1a1a;
+            fill: #ffffff;
         }
 
         /* TAB BAR */
@@ -149,10 +147,10 @@
             display: flex;
             gap: 10px;
             margin-bottom: 24px;
-            background: #ececec;
+            background: #1a1a1a;
             padding: 6px;
             border-radius: 48px;
-            border: 1px solid #c8c8c8;
+            border: 1px solid #2a2a2a;
         }
         .tab-btn {
             flex: 1;
@@ -163,32 +161,31 @@
             border-radius: 40px;
             background: transparent;
             border: none;
-            color: #2a2a2a;
+            color: #888;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
             letter-spacing: 0.4px;
-            backdrop-filter: blur(2px);
         }
         .tab-btn.active {
-            background: #1a1a1a;
-            color: #ffffff;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+            background: #ffffff;
+            color: #0a0a0a;
+            box-shadow: 0 6px 18px rgba(255, 255, 255, 0.15);
             transform: scale(1.02);
         }
         .tab-btn:not(.active):hover {
-            background: #dadada;
+            background: #2a2a2a;
+            color: #ddd;
         }
 
         /* SCRIPT BOX */
         .script-box {
-            background: #fcfcfc;
+            background: #1a1a1a;
             border-radius: 28px;
             padding: 18px 16px 16px;
-            border: 1px solid #cacaca;
+            border: 1px solid #2a2a2a;
             margin-bottom: 10px;
             transition: all 0.2s;
-            backdrop-filter: blur(2px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
         }
         .script-box-header {
             display: flex;
@@ -198,18 +195,18 @@
         }
         .script-box-header .label {
             font-weight: 600;
-            color: #1a1a1a;
+            color: #ffffff;
             font-size: 15px;
-            background: #e0e0e0;
+            background: #2a2a2a;
             padding: 4px 18px;
             border-radius: 40px;
             letter-spacing: 0.4px;
-            border: 1px solid #bfbfbf;
+            border: 1px solid #3a3a3a;
         }
         .copy-btn {
-            background: #1a1a1a;
+            background: #ffffff;
             border: none;
-            color: white;
+            color: #0a0a0a;
             padding: 8px 20px;
             border-radius: 48px;
             font-weight: 600;
@@ -219,16 +216,17 @@
             align-items: center;
             gap: 8px;
             transition: all 0.18s;
-            border: 1px solid #2a2a2a;
+            border: 1px solid #ffffff;
             letter-spacing: 0.3px;
         }
         .copy-btn:active {
             transform: scale(0.92);
-            background: #333;
+            background: #e0e0e0;
         }
         .copy-btn.copied {
-            background: #1e5e1e;
-            border-color: #1e5e1e;
+            background: #2e7d32;
+            border-color: #2e7d32;
+            color: #ffffff;
         }
         .copy-icon {
             font-size: 20px;
@@ -236,20 +234,19 @@
         }
 
         .script-content {
-            background: #f0f0f0;
+            background: #0d0d0d;
             padding: 16px 16px;
             border-radius: 20px;
             font-size: 13px;
             font-family: 'Courier New', monospace;
             word-break: break-all;
             white-space: pre-wrap;
-            color: #1a1a1a;
-            border: 1px solid #d0d0d0;
+            color: #e0e0e0;
+            border: 1px solid #2a2a2a;
             line-height: 1.6;
             max-height: 180px;
             overflow-y: auto;
             transition: background 0.15s;
-            backdrop-filter: blur(2px);
         }
 
         /* TAB CONTENT */
@@ -271,8 +268,8 @@
             text-align: center;
             margin-top: 24px;
             font-size: 12px;
-            color: #6a6a6a;
-            border-top: 1px solid #d8d8d8;
+            color: #666;
+            border-top: 1px solid #2a2a2a;
             padding-top: 18px;
             letter-spacing: 0.6px;
         }
@@ -297,12 +294,15 @@
             width: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: #eaeaea;
+            background: #1a1a1a;
             border-radius: 12px;
         }
         ::-webkit-scrollbar-thumb {
-            background: #8a8a8a;
+            background: #444;
             border-radius: 12px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
         }
     </style>
 </head>
@@ -454,16 +454,12 @@ loadstring(game:HttpGet"https://raw.githubusercontent.com/duongquangtungnam/Scri
             });
 
             // ---- 120hz delay animation (chỉ mang tính chất tượng trưng) ----
-            // Thực tế không thể ép 120hz, nhưng ta thêm transition mượt
-            // và dùng requestAnimationFrame để tối ưu
             let frameId = null;
             function smoothLoop() {
-                // chỉ để kích hoạt rAF, không làm gì thêm
                 frameId = requestAnimationFrame(smoothLoop);
             }
             smoothLoop();
 
-            // cleanup khi rời trang (tuỳ chọn)
             window.addEventListener('beforeunload', function() {
                 if (frameId) cancelAnimationFrame(frameId);
             });
