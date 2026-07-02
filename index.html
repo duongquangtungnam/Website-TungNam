@@ -25,14 +25,14 @@
             padding: 20px;
         }
 
-        /* khung điện thoại */
+        /* khung ngang */
         .phone-frame {
-            max-width: 420px;
+            max-width: 820px;
             width: 100%;
             background: #121212;
             border-radius: 40px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.06);
-            padding: 24px 20px 30px;
+            padding: 30px 35px;
             position: relative;
             transition: all 0.2s ease;
         }
@@ -42,13 +42,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-bottom: 14px;
+            padding-bottom: 18px;
             border-bottom: 1px solid #2a2a2a;
-            margin-bottom: 22px;
+            margin-bottom: 24px;
         }
 
         .site-title {
-            font-size: 26px;
+            font-size: 32px;
             font-weight: 700;
             letter-spacing: -0.5px;
             background: linear-gradient(145deg, #ffffff, #a0a0a0, #ffffff);
@@ -100,7 +100,7 @@
         .dropdown-menu {
             position: absolute;
             top: 76px;
-            right: 20px;
+            right: 35px;
             background: #1a1a1a;
             border-radius: 24px;
             padding: 16px 20px;
@@ -142,7 +142,15 @@
             fill: #ffffff;
         }
 
-        /* TAB BAR */
+        /* BỐ CỤC NGANG: 2 cột */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* TAB BAR - nằm trên cùng, chiếm full width */
         .tab-bar {
             display: flex;
             gap: 10px;
@@ -151,6 +159,7 @@
             padding: 6px;
             border-radius: 48px;
             border: 1px solid #2a2a2a;
+            grid-column: 1 / -1;
         }
         .tab-btn {
             flex: 1;
@@ -177,15 +186,15 @@
             color: #ddd;
         }
 
-        /* SCRIPT BOX */
+        /* SCRIPT BOX - style giống ảnh */
         .script-box {
             background: #1a1a1a;
             border-radius: 28px;
-            padding: 18px 16px 16px;
+            padding: 20px 20px 18px;
             border: 1px solid #2a2a2a;
-            margin-bottom: 10px;
             transition: all 0.2s;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            height: fit-content;
         }
         .script-box-header {
             display: flex;
@@ -244,12 +253,12 @@
             color: #e0e0e0;
             border: 1px solid #2a2a2a;
             line-height: 1.6;
-            max-height: 180px;
+            max-height: 160px;
             overflow-y: auto;
             transition: background 0.15s;
         }
 
-        /* TAB CONTENT */
+        /* TAB CONTENT - ẩn/hiện */
         .tab-content {
             display: none;
             animation: fadeTab 0.3s ease;
@@ -274,18 +283,46 @@
             letter-spacing: 0.6px;
         }
 
-        /* responsive */
-        @media (max-width: 480px) {
+        /* responsive - khi màn hình nhỏ, chuyển về 1 cột */
+        @media (max-width: 700px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
             .phone-frame {
+                padding: 20px 18px;
                 border-radius: 32px;
-                padding: 18px 14px 24px;
             }
             .site-title {
-                font-size: 22px;
+                font-size: 24px;
             }
             .tab-btn {
                 font-size: 15px;
                 padding: 10px 0;
+            }
+            .dropdown-menu {
+                right: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .phone-frame {
+                border-radius: 28px;
+                padding: 16px 14px;
+            }
+            .site-title {
+                font-size: 20px;
+            }
+            .script-box {
+                padding: 14px 14px 14px;
+            }
+            .script-content {
+                font-size: 11px;
+                max-height: 120px;
+            }
+            .copy-btn {
+                padding: 6px 14px;
+                font-size: 12px;
             }
         }
 
@@ -318,7 +355,7 @@
 
         <!-- DROPDOWN -->
         <div class="dropdown-menu" id="dropdownMenu">
-            <a class="dropdown-item" href="https://tiktok.com/@usernamvietnam99" target="_blank" rel="noopener">
+            <a class="dropdown-item" href="https://tiktok.com/@uservietnam99" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24"><path d="M12.525.02c1.32 0 2.617.11 3.896.32v4.38a8.16 8.16 0 0 0-3.707-.68c-4.402 0-7.976 3.574-7.976 7.976 0 4.402 3.574 7.976 7.976 7.976 4.402 0 7.976-3.574 7.976-7.976 0-1.16-.25-2.266-.706-3.276V12.2c.656.27 1.378.403 2.158.403V7.62c0-.058-.04-.11-.096-.137a8.032 8.032 0 0 0-2.98-.583c-4.402 0-7.976 3.574-7.976 7.976 0 4.402 3.574 7.976 7.976 7.976 4.402 0 7.976-3.574 7.976-7.976 0-1.16-.25-2.266-.706-3.276V12.2c.656.27 1.378.403 2.158.403V7.62c0-.058-.04-.11-.096-.137a8.032 8.032 0 0 0-2.98-.583z"/></svg>
                 TikTok
             </a>
@@ -334,39 +371,71 @@
             <button class="tab-btn" data-tab="tab2">Tung Nam Hub</button>
         </div>
 
-        <!-- TAB 1: Tung Nam Hub -->
+        <!-- TAB 1: Tung Nam Hub - BỐ CỤC NGANG 2 CỘT -->
         <div id="tab1" class="tab-content active">
-            <div class="script-box">
-                <div class="script-box-header">
-                    <span class="label">📜 Script</span>
-                    <button class="copy-btn" data-script="loadstring(game:HttpGet&quot;https://raw.githubusercontent.com/duongquangtungnam/Scripts/refs/heads/main/TungNamXRedz.lua&quot;)()">
-                        <span class="copy-icon">📋</span> Copy
-                    </button>
-                </div>
-                <div class="script-content">
+            <div class="main-grid">
+                <!-- Cột trái -->
+                <div class="script-box">
+                    <div class="script-box-header">
+                        <span class="label">📜 Script</span>
+                        <button class="copy-btn" data-script="loadstring(game:HttpGet&quot;https://raw.githubusercontent.com/duongquangtungnam/Scripts/refs/heads/main/TungNamXRedz.lua&quot;)()">
+                            <span class="copy-icon">📋</span> Copy
+                        </button>
+                    </div>
+                    <div class="script-content">
 loadstring(game:HttpGet"https://raw.githubusercontent.com/duongquangtungnam/Scripts/refs/heads/main/TungNamXRedz.lua")()
+                    </div>
+                </div>
+                <!-- Cột phải -->
+                <div class="script-box">
+                    <div class="script-box-header">
+                        <span class="label">📜 Script</span>
+                        <button class="copy-btn" data-script="loadstring(game:HttpGet&quot;https://raw.githubusercontent.com/duongquangtungnam/Scripts/refs/heads/main/TungNamXRedz.lua&quot;)()">
+                            <span class="copy-icon">📋</span> Copy
+                        </button>
+                    </div>
+                    <div class="script-content">
+loadstring(game:HttpGet"https://raw.githubusercontent.com/duongquangtungnam/Scripts/refs/heads/main/TungNamXRedz.lua")()
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- TAB 2: Tung Nam Hub -->
+        <!-- TAB 2: Tung Nam Hub - BỐ CỤC NGANG 2 CỘT -->
         <div id="tab2" class="tab-content">
-            <div class="script-box">
-                <div class="script-box-header">
-                    <span class="label">📜 Script</span>
-                    <button class="copy-btn" data-script="repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
+            <div class="main-grid">
+                <!-- Cột trái -->
+                <div class="script-box">
+                    <div class="script-box-header">
+                        <span class="label">📜 Script</span>
+                        <button class="copy-btn" data-script="repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
 loadstring(game:HttpGet&quot;https://raw.githubusercontent.com/duongquangtungnam/Scripts/refs/heads/main/TungNamXRedz.lua&quot;)()">
-                        <span class="copy-icon">📋</span> Copy
-                    </button>
-                </div>
-                <div class="script-content">
+                            <span class="copy-icon">📋</span> Copy
+                        </button>
+                    </div>
+                    <div class="script-content">
 repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
 loadstring(game:HttpGet"https://raw.githubusercontent.com/duongquangtungnam/Scripts/refs/heads/main/TungNamXRedz.lua")()
+                    </div>
+                </div>
+                <!-- Cột phải -->
+                <div class="script-box">
+                    <div class="script-box-header">
+                        <span class="label">📜 Script</span>
+                        <button class="copy-btn" data-script="repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
+loadstring(game:HttpGet&quot;https://raw.githubusercontent.com/duongquangtungnam/Scripts/refs/heads/main/TungNamXRedz.lua&quot;)()">
+                            <span class="copy-icon">📋</span> Copy
+                        </button>
+                    </div>
+                    <div class="script-content">
+repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
+loadstring(game:HttpGet"https://raw.githubusercontent.com/duongquangtungnam/Scripts/refs/heads/main/TungNamXRedz.lua")()
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- footer nhẹ -->
+        <!-- footer -->
         <div class="footer-note">✦ TungNamHub / Website ✦</div>
     </div>
 
@@ -381,7 +450,6 @@ loadstring(game:HttpGet"https://raw.githubusercontent.com/duongquangtungnam/Scri
                 dropdown.classList.toggle('show');
             });
 
-            // đóng dropdown khi click bên ngoài
             document.addEventListener('click', function(e) {
                 if (!dropdown.contains(e.target) && !hamburger.contains(e.target)) {
                     dropdown.classList.remove('show');
@@ -397,14 +465,11 @@ loadstring(game:HttpGet"https://raw.githubusercontent.com/duongquangtungnam/Scri
 
             tabBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
-                    // bỏ active tất cả
                     tabBtns.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
 
-                    // ẩn tất cả tab content
                     Object.values(tabContents).forEach(el => el.classList.remove('active'));
 
-                    // hiện tab tương ứng
                     const target = this.dataset.tab;
                     if (target && tabContents[target]) {
                         tabContents[target].classList.add('active');
@@ -422,9 +487,7 @@ loadstring(game:HttpGet"https://raw.githubusercontent.com/duongquangtungnam/Scri
                     const scriptText = this.dataset.script;
                     if (!scriptText) return;
 
-                    // copy
                     navigator.clipboard.writeText(scriptText).then(() => {
-                        // hiệu ứng copy
                         const originalText = this.innerHTML;
                         this.innerHTML = `<span class="copy-icon">✅</span> Copied!`;
                         this.classList.add('copied');
@@ -434,7 +497,6 @@ loadstring(game:HttpGet"https://raw.githubusercontent.com/duongquangtungnam/Scri
                             this.classList.remove('copied');
                         }, 2000);
                     }).catch(() => {
-                        // fallback
                         const textArea = document.createElement('textarea');
                         textArea.value = scriptText;
                         document.body.appendChild(textArea);
@@ -453,7 +515,7 @@ loadstring(game:HttpGet"https://raw.githubusercontent.com/duongquangtungnam/Scri
                 });
             });
 
-            // ---- 120hz delay animation (chỉ mang tính chất tượng trưng) ----
+            // ---- rAF loop ----
             let frameId = null;
             function smoothLoop() {
                 frameId = requestAnimationFrame(smoothLoop);
