@@ -26,37 +26,35 @@
             position: relative;
         }
 
-        /* Tung Nam - góc trên cùng bên phải */
+        /* Tung Nam - góc trên cùng bên trái với hiệu ứng chạy từ phải qua trái */
         .corner-text {
             position: fixed;
             top: 20px;
-            right: 30px;
+            left: 30px;
             font-size: 28px;
             font-weight: 700;
-            letter-spacing: 1px;
-            color: #ffffff;
-            animation: blinkGlow 1.2s ease-in-out infinite alternate;
+            letter-spacing: 2px;
             z-index: 1000;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
             cursor: default;
             user-select: none;
+            background: linear-gradient(90deg, #000000 0%, #000000 30%, #ffffff 50%, #000000 70%, #000000 100%);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideGradient 2.5s ease-in-out infinite;
+            text-shadow: none;
         }
 
-        @keyframes blinkGlow {
+        @keyframes slideGradient {
             0% {
-                color: #ffffff;
-                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.4);
-                opacity: 1;
+                background-position: 100% 0%;
             }
             50% {
-                color: #aaaaaa;
-                text-shadow: 0 0 5px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.1);
-                opacity: 0.7;
+                background-position: 0% 0%;
             }
             100% {
-                color: #000000;
-                text-shadow: 0 0 30px rgba(255, 255, 255, 0.9), 0 0 60px rgba(255, 255, 255, 0.5);
-                opacity: 1;
+                background-position: 100% 0%;
             }
         }
 
@@ -278,7 +276,7 @@
             .corner-text {
                 font-size: 20px;
                 top: 12px;
-                right: 16px;
+                left: 16px;
             }
         }
 
@@ -309,7 +307,8 @@
             .corner-text {
                 font-size: 16px;
                 top: 10px;
-                right: 12px;
+                left: 12px;
+                letter-spacing: 1px;
             }
         }
 
@@ -331,8 +330,8 @@
     </style>
 </head>
 <body>
-    <!-- Chữ Tung Nam góc trên cùng bên phải -->
-    <div class="corner-text">Tung Nam</div>
+    <!-- Chữ Tung Nam góc trên cùng bên trái với hiệu ứng chạy từ phải qua trái -->
+    <div class="corner-text">✦ Tung Nam</div>
 
     <div class="phone-frame" id="app">
         <!-- HEADER -->
