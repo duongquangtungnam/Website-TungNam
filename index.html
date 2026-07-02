@@ -37,13 +37,21 @@
             z-index: 1000;
             cursor: default;
             user-select: none;
-            background: linear-gradient(90deg, #000000 0%, #000000 30%, #ffffff 50%, #000000 70%, #000000 100%);
+            background: linear-gradient(90deg, 
+                #ffffff 0%, 
+                #ffffff 20%, 
+                #cccccc 40%, 
+                #ffffff 60%, 
+                #ffffff 80%, 
+                #cccccc 100%
+            );
             background-size: 300% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: slideGradient 2.5s ease-in-out infinite;
-            text-shadow: none;
+            animation: slideGradient 3s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
         }
 
         @keyframes slideGradient {
@@ -344,7 +352,7 @@
 
         <!-- DROPDOWN -->
         <div class="dropdown-menu" id="dropdownMenu">
-            <a class="dropdown-item" href="https://tiktok.com/@usernamevietnam99" target="_blank" rel="noopener">
+            <a class="dropdown-item" href="https://tiktok.com/@uservietnam99" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24"><path d="M12.525.02c1.32 0 2.617.11 3.896.32v4.38a8.16 8.16 0 0 0-3.707-.68c-4.402 0-7.976 3.574-7.976 7.976 0 4.402 3.574 7.976 7.976 7.976 4.402 0 7.976-3.574 7.976-7.976 0-1.16-.25-2.266-.706-3.276V12.2c.656.27 1.378.403 2.158.403V7.62c0-.058-.04-.11-.096-.137a8.032 8.032 0 0 0-2.98-.583c-4.402 0-7.976 3.574-7.976 7.976 0 4.402 3.574 7.976 7.976 7.976 4.402 0 7.976-3.574 7.976-7.976 0-1.16-.25-2.266-.706-3.276V12.2c.656.27 1.378.403 2.158.403V7.62c0-.058-.04-.11-.096-.137a8.032 8.032 0 0 0-2.98-.583z"/></svg>
                 TikTok
             </a>
