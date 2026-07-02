@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>TungNamHub / Website</title>
+    <!-- Google Font (Gemini) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Gemini&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gemini', 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #e8e8e8;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            backdrop-filter: blur(2px);
+        }
+
+        /* khung điện thoại */
+        .phone-frame {
+            max-width: 420px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.04);
+            padding: 24px 20px 30px;
+            position: relative;
+            backdrop-filter: blur(6px);
+            transition: all 0.2s ease;
+        }
+
+        /* HEADER */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #d0d0d0;
+            margin-bottom: 22px;
+        }
+
+        .site-title {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(145deg, #1a1a1a, #a00000, #1a1a1a);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmerTitle 3.2s ease-in-out infinite alternate;
+            text-shadow: 0 0 14px rgba(160, 0, 0, 0.25);
+            transition: transform 0.2s;
+        }
+        .site-title:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes shimmerTitle {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* hamburger */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px 10px;
+            border-radius: 14px;
+            background: #f0f0f0;
+            transition: background 0.2s, transform 0.1s;
+            border: 1px solid #bcbcbc;
+        }
+        .hamburger:hover {
+            background: #e2e2e2;
+        }
+        .hamburger:active {
+            transform: scale(0.90);
+        }
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 3px;
+            background: #1a1a1a;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        /* dropdown */
+        .dropdown-menu {
+            position: absolute;
+            top: 76px;
+            right: 20px;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 16px 20px;
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+            border: 1px solid #cecece;
+            display: none;
+            flex-direction: column;
+            gap: 16px;
+            z-index: 99;
+            min-width: 180px;
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.96);
+            transition: all 0.15s ease;
+        }
+        .dropdown-menu.show {
+            display: flex;
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #1a1a1a;
+            text-decoration: none;
+            padding: 8px 6px 8px 4px;
+            border-radius: 16px;
+            transition: background 0.15s;
+            cursor: pointer;
+            letter-spacing: 0.3px;
+        }
+        .dropdown-item:hover {
+            background: #ececec;
+        }
+        .dropdown-item svg {
+            width: 30px;
+            height: 30px;
+            fill: #1a1a1a;
+        }
+
+        /* TAB BAR */
+        .tab-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 24px;
+            background: #ececec;
+            padding: 6px;
+            border-radius: 48px;
+            border: 1px solid #c8c8c8;
+        }
+        .tab-btn {
+            flex: 1;
+            padding: 12px 0;
+            text-align: center;
+            font-weight: 600;
+            font-size: 17px;
+            border-radius: 40px;
+            background: transparent;
+            border: none;
+            color: #2a2a2a;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+            letter-spacing: 0.4px;
+            backdrop-filter: blur(2px);
+        }
+        .tab-btn.active {
+            background: #1a1a1a;
+            color: #ffffff;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+            transform: scale(1.02);
+        }
+        .tab-btn:not(.active):hover {
+            background: #dadada;
+        }
+
+        /* SCRIPT BOX */
+        .script-box {
+            background: #fcfcfc;
+            border-radius: 28px;
+            padding: 18px 16px 16px;
+            border: 1px solid #cacaca;
+            margin-bottom: 10px;
+            transition: all 0.2s;
+            backdrop-filter: blur(2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+        }
+        .script-box-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+        .script-box-header .label {
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 15px;
+            background: #e0e0e0;
+            padding: 4px 18px;
+            border-radius: 40px;
+            letter-spacing: 0.4px;
+            border: 1px solid #bfbfbf;
+        }
+        .copy-btn {
+            background: #1a1a1a;
+            border: none;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 48px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.18s;
+            border: 1px solid #2a2a2a;
+            letter-spacing: 0.3px;
+        }
+        .copy-btn:active {
+            transform: scale(0.92);
+            background: #333;
+        }
+        .copy-btn.copied {
+            background: #1e5e1e;
+            border-color: #1e5e1e;
+        }
+        .copy-icon {
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        .script-content {
+            background: #f0f0f0;
+            padding: 16px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+            white-space: pre-wrap;
+            color: #1a1a1a;
+            border: 1px solid #d0d0d0;
+            line-height: 1.6;
+            max-height: 180px;
+            overflow-y: auto;
+            transition: background 0.15s;
+            backdrop-filter: blur(2px);
+        }
+
+        /* TAB CONTENT */
+        .tab-content {
+            display: none;
+            animation: fadeTab 0.3s ease;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeTab {
+            0% { opacity: 0.5; transform: translateY(8px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* footer */
+        .footer-note {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 12px;
+            color: #6a6a6a;
+            border-top: 1px solid #d8d8d8;
+            padding-top: 18px;
+            letter-spacing: 0.6px;
+        }
+
+        /* responsive */
+        @media (max-width: 480px) {
+            .phone-frame {
+                border-radius: 32px;
+                padding: 18px 14px 24px;
+            }
+            .site-title {
+                font-size: 22px;
+            }
+            .tab-btn {
+                font-size: 15px;
+                padding: 10px 0;
+            }
+        }
+
+        /* scroll */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #eaeaea;
+            border-radius: 12px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #8a8a8a;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-frame" id="app">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="site-title">✦ TungNamHub</div>
+            <div class="hamburger" id="hamburgerBtn" aria-label="menu">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <!-- DROPDOWN -->
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a class="dropdown-item" href="https://tiktok.com/@uservietnam99" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M12.525.02c1.32 0 2.617.11 3.896.32v4.38a8.16 8.16 0 0 0-3.707-.68c-4.402 0-7.976 3.574-7.976 7.976 0 4.402 3.574 7.976 7.976 7.976 4.402 0 7.976-3.574 7.976-7.976 0-1.16-.25-2.266-.706-3.276V12.2c.656.27 1.378.403 2.158.403V7.62c0-.058-.04-.11-.096-.137a8.032 8.032 0 0 0-2.98-.583c-4.402 0-7.976 3.574-7.976 7.976 0 4.402 3.574 7.976 7.976 7.976 4.402 0 7.976-3.574 7.976-7.976 0-1.16-.25-2.266-.706-3.276V12.2c.656.27 1.378.403 2.158.403V7.62c0-.058-.04-.11-.096-.137a8.032 8.032 0 0 0-2.98-.583z"/></svg>
+                TikTok
+            </a>
+            <a class="dropdown-item" href="https://discord.gg/qzW2YVjQMD" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0c-.164-.386-.398-.875-.608-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.1.246.198.372.292a.077.077 0 0 1-.006.128 13.1 13.1 0 0 1-1.873.892.077.077 0 0 0-.041.106c.352.699.764 1.364 1.226 1.994a.078.078 0 0 0 .084.028 19.9 19.9 0 0 0 5.993-3.03.08.08 0 0 0 .031-.057c.5-5.177-.838-9.674-3.546-13.66a.07.07 0 0 0-.032-.027zM8.52 15.17c-1.194 0-2.174-1.096-2.174-2.44 0-1.344.963-2.44 2.174-2.44 1.21 0 2.191 1.096 2.191 2.44 0 1.344-.98 2.44-2.191 2.44zm6.96 0c-1.194 0-2.174-1.096-2.174-2.44 0-1.344.963-2.44 2.174-2.44 1.21 0 2.191 1.096 2.191 2.44 0 1.344-.98 2.44-2.191 2.44z"/></svg>
+                Discord
+            </a>
+        </div>
+
+        <!-- TAB BAR -->
+        <div class="tab-bar">
+            <button class="tab-btn active" data-tab="tab1">Tung Nam Hub</button>
+            <button class="tab-btn" data-tab="tab2">Var Hub</button>
+        </div>
+
+        <!-- TAB 1: Tung Nam Hub -->
+        <div id="tab1" class="tab-content active">
+            <div class="script-box">
+                <div class="script-box-header">
+                    <span class="label">📜 Script</span>
+                    <button class="copy-btn" data-script="loadstring(game:HttpGet&quot;https://raw.githubusercontent.com/duongquangtungnam/Scripts/refs/heads/main/TungNamXRedz.lua&quot;)()">
+                        <span class="copy-icon">📋</span> Copy
+                    </button>
+                </div>
+                <div class="script-content">
+loadstring(game:HttpGet"https://raw.githubusercontent.com/duongquangtungnam/Scripts/refs/heads/main/TungNamXRedz.lua")()
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: Var Hub -->
+        <div id="tab2" class="tab-content">
+            <div class="script-box">
+                <div class="script-box-header">
+                    <span class="label">📜 Script</span>
+                    <button class="copy-btn" data-script="repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
+loadstring(game:HttpGet&quot;https://raw.githubusercontent.com/duongquangtungnam/Scripts/refs/heads/main/TungNamXRedz.lua&quot;)()">
+                        <span class="copy-icon">📋</span> Copy
+                    </button>
+                </div>
+                <div class="script-content">
+repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
+loadstring(game:HttpGet"https://raw.githubusercontent.com/duongquangtungnam/Scripts/refs/heads/main/TungNamXRedz.lua")()
+                </div>
+            </div>
+        </div>
+
+        <!-- footer nhẹ -->
+        <div class="footer-note">✦ TungNamHub / Website ✦</div>
+    </div>
+
+    <script>
+        (function() {
+            // ---- HAMBURGER ----
+            const hamburger = document.getElementById('hamburgerBtn');
+            const dropdown = document.getElementById('dropdownMenu');
+
+            hamburger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                dropdown.classList.toggle('show');
+            });
+
+            // đóng dropdown khi click bên ngoài
+            document.addEventListener('click', function(e) {
+                if (!dropdown.contains(e.target) && !hamburger.contains(e.target)) {
+                    dropdown.classList.remove('show');
+                }
+            });
+
+            // ---- TAB ----
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = {
+                tab1: document.getElementById('tab1'),
+                tab2: document.getElementById('tab2')
+            };
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // bỏ active tất cả
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // ẩn tất cả tab content
+                    Object.values(tabContents).forEach(el => el.classList.remove('active'));
+
+                    // hiện tab tương ứng
+                    const target = this.dataset.tab;
+                    if (target && tabContents[target]) {
+                        tabContents[target].classList.add('active');
+                    }
+                });
+            });
+
+            // ---- COPY ----
+            const copyBtns = document.querySelectorAll('.copy-btn');
+
+            copyBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+
+                    const scriptText = this.dataset.script;
+                    if (!scriptText) return;
+
+                    // copy
+                    navigator.clipboard.writeText(scriptText).then(() => {
+                        // hiệu ứng copy
+                        const originalText = this.innerHTML;
+                        this.innerHTML = `<span class="copy-icon">✅</span> Copied!`;
+                        this.classList.add('copied');
+
+                        setTimeout(() => {
+                            this.innerHTML = originalText;
+                            this.classList.remove('copied');
+                        }, 2000);
+                    }).catch(() => {
+                        // fallback
+                        const textArea = document.createElement('textarea');
+                        textArea.value = scriptText;
+                        document.body.appendChild(textArea);
+                        textArea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textArea);
+
+                        const originalText = this.innerHTML;
+                        this.innerHTML = `<span class="copy-icon">✅</span> Copied!`;
+                        this.classList.add('copied');
+                        setTimeout(() => {
+                            this.innerHTML = originalText;
+                            this.classList.remove('copied');
+                        }, 2000);
+                    });
+                });
+            });
+
+            // ---- 120hz delay animation (chỉ mang tính chất tượng trưng) ----
+            // Thực tế không thể ép 120hz, nhưng ta thêm transition mượt
+            // và dùng requestAnimationFrame để tối ưu
+            let frameId = null;
+            function smoothLoop() {
+                // chỉ để kích hoạt rAF, không làm gì thêm
+                frameId = requestAnimationFrame(smoothLoop);
+            }
+            smoothLoop();
+
+            // cleanup khi rời trang (tuỳ chọn)
+            window.addEventListener('beforeunload', function() {
+                if (frameId) cancelAnimationFrame(frameId);
+            });
+
+        })();
+    </script>
+</body>
+</html>
